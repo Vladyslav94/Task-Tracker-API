@@ -22,22 +22,13 @@ public class Task {
     @Column(name = "status")
     private String status;
 
-
-    private int userId;
-
-    @ManyToOne(fetch = FetchType.LAZY, cascade = {CascadeType.PERSIST, CascadeType.MERGE,
-            CascadeType.DETACH, CascadeType.REFRESH})
-    @JoinColumn(name = "user_id")
-    private User user;
-
     public Task() {
     }
 
-    public Task(String title, String description, String status, int userId) {
+    public Task(String title, String description, String status) {
         this.title = title;
         this.description = description;
         this.status = status;
-        this.userId = userId;
     }
 
     public int getId() {
@@ -72,19 +63,4 @@ public class Task {
         this.status = status;
     }
 
-    public int getUserId() {
-        return userId;
-    }
-
-    public void setUserId(int userId) {
-        this.userId = userId;
-    }
-
-    public User getUser() {
-        return user;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
-    }
 }

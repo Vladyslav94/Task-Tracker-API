@@ -25,9 +25,10 @@ public class User {
     @Column(name = "status")
     private String status;
 
-    @OneToMany(fetch = FetchType.LAZY,
-            mappedBy = "user", cascade = {CascadeType.PERSIST,
-            CascadeType.MERGE, CascadeType.DETACH, CascadeType.REFRESH})
+    @OneToMany(fetch = FetchType.EAGER,
+            cascade = {CascadeType.PERSIST,
+                    CascadeType.MERGE, CascadeType.DETACH, CascadeType.REFRESH})
+    @JoinColumn(name = "user_id")
     private List<Task> taskList;
 
     public User() {
@@ -87,14 +88,12 @@ public class User {
         this.taskList = taskList;
     }
 
-    public void addTask(Task task){
-        if(taskList == null){
+    public void addTask(Task task) {
+        if (taskList == null) {
             taskList = new ArrayList<>();
         }
 
         taskList.add(task);
     }
-
-
 
 }
