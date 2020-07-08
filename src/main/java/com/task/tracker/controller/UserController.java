@@ -17,13 +17,11 @@ public class UserController {
     @RequestMapping("/createUser")
     public User createUser(@RequestParam(value = "firstName") String firstName,
                            @RequestParam(value = "lastName") String lastName,
-                           @RequestParam(value = "email") String email,
-                           @RequestParam(value = "taskId") int taskId) {
+                           @RequestParam(value = "email") String email) {
         User user = new User();
         user.setFirstName(firstName);
         user.setLastName(lastName);
         user.setEmail(email);
-        user.setTaskId(taskId);
         user.setStatus("created");
 
         createUserInDB(user);
@@ -70,15 +68,18 @@ public class UserController {
     }
 
     @RequestMapping("/createTask")
-    public User createTask(@RequestParam(value = "id") int id){
+    public Task createTask(@RequestParam(value = "id") String title,
+                           @RequestParam(value = "description") String description,
+                           @RequestParam(value = "status") String status,
+                           @RequestParam(value = "userId") int userId){
         Session session = createSessionForDB();
         session.beginTransaction();
-        User user = (User) session.get(User.class, id);
-        Task task = new Task("aa", "111", "in progress");
+        User user = (User) session.get(User.class, userId);
+        Task task = new Task(title, description, status, userId);
         user.addTask(task);
         session.save(task);
         session.getTransaction().commit();
-        return user;
+        return task;
     }
 
     @RequestMapping("/getUserData")
@@ -86,9 +87,10 @@ public class UserController {
         Session session = createSessionForDB();
         session.beginTransaction();
         User user = (User) session.get(User.class, id);
-        System.out.println(user.getTaskList());
         return user;
     }
+
+
 
     public void createUserInDB(User user) {
         Session session = createSessionForDB();

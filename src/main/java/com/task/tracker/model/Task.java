@@ -3,7 +3,6 @@ package com.task.tracker.model;
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Set;
 
 @Entity
 @Table(name = "task")
@@ -23,16 +22,22 @@ public class Task {
     @Column(name = "status")
     private String status;
 
-    @ManyToMany(mappedBy = "taskList")
-    private List<User> users;
+
+    private int userId;
+
+    @ManyToOne(fetch = FetchType.LAZY, cascade = {CascadeType.PERSIST, CascadeType.MERGE,
+            CascadeType.DETACH, CascadeType.REFRESH})
+    @JoinColumn(name = "user_id")
+    private User user;
 
     public Task() {
     }
 
-    public Task(String title, String description, String status) {
+    public Task(String title, String description, String status, int userId) {
         this.title = title;
         this.description = description;
         this.status = status;
+        this.userId = userId;
     }
 
     public int getId() {
@@ -67,19 +72,19 @@ public class Task {
         this.status = status;
     }
 
-    public List<User> getUsers() {
-        return users;
+    public int getUserId() {
+        return userId;
     }
 
-    public void setUsers(List<User> users) {
-        this.users = users;
+    public void setUserId(int userId) {
+        this.userId = userId;
     }
 
-    public void addUser(User user){
-        if(users == null){
-            users = new ArrayList<>();
-        }
+    public User getUser() {
+        return user;
+    }
 
-        users.add(user);
+    public void setUser(User user) {
+        this.user = user;
     }
 }

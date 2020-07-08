@@ -3,7 +3,6 @@ package com.task.tracker.model;
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Set;
 
 @Entity
 @Table(name = "user")
@@ -11,7 +10,7 @@ public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "user_id")
+    @Column(name = "id")
     private int id;
 
     @Column(name = "first_name")
@@ -26,26 +25,18 @@ public class User {
     @Column(name = "status")
     private String status;
 
-
-    @JoinColumn(name = "task_id")
-    private int taskId;
-
-    @ManyToMany(fetch = FetchType.EAGER, cascade = {CascadeType.PERSIST, CascadeType.MERGE,
-            CascadeType.DETACH, CascadeType.REFRESH})
-    @JoinTable(
-            name = "user_tasks",
-            joinColumns = @JoinColumn(name = "user_id"),
-            inverseJoinColumns = @JoinColumn(name = "id"))
+    @OneToMany(fetch = FetchType.LAZY,
+            mappedBy = "user", cascade = {CascadeType.PERSIST,
+            CascadeType.MERGE, CascadeType.DETACH, CascadeType.REFRESH})
     private List<Task> taskList;
 
     public User() {
     }
 
-    public User(String firstName, String lastName, String email, int taskId) {
+    public User(String firstName, String lastName, String email) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
-        this.taskId = taskId;
     }
 
     public int getId() {
@@ -86,14 +77,6 @@ public class User {
 
     public void setStatus(String status) {
         this.status = status;
-    }
-
-    public int getTaskId() {
-        return taskId;
-    }
-
-    public void setTaskId(int taskId) {
-        this.taskId = taskId;
     }
 
     public List<Task> getTaskList() {
