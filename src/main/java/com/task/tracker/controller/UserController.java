@@ -79,7 +79,7 @@ public class UserController {
             @RequestParam(defaultValue = "0") Integer pageNo,
             @RequestParam(defaultValue = "10") Integer pageSize,
             @RequestParam(defaultValue = "id") String sortBy) {
-        List<User> list = userService.getAllEmployees(pageNo, pageSize, sortBy);
+        List<User> list = userService.getAllUsers(pageNo, pageSize, sortBy);
 
         return new ResponseEntity<List<User>>(list, new HttpHeaders(), HttpStatus.OK);
     }

@@ -24,7 +24,7 @@ public class UserService {
     @Autowired
     private UserRepositoryForPaging userRepo;
 
-    public List<User> getAllEmployees(Integer pageNo, Integer pageSize, String sortBy)
+    public List<User> getAllUsers(Integer pageNo, Integer pageSize, String sortBy)
     {
         Pageable paging = PageRequest.of(pageNo, pageSize, Sort.by(sortBy));
 
@@ -33,7 +33,7 @@ public class UserService {
         if(pagedResult.hasContent()) {
             return pagedResult.getContent();
         } else {
-            return new ArrayList<User>();
+            return new ArrayList<>();
         }
     }
 
