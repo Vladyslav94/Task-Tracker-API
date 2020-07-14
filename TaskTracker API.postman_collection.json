@@ -1,0 +1,378 @@
+{
+	"info": {
+		"_postman_id": "51dd9112-d2ef-41ee-a5fc-4c1f1c2881ef",
+		"name": "TaskTracker API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "Create User",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/createUser?firstName=name&lastName=surname&email=mail",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"createUser"
+							],
+							"query": [
+								{
+									"key": "firstName",
+									"value": "name"
+								},
+								{
+									"key": "lastName",
+									"value": "surname"
+								},
+								{
+									"key": "email",
+									"value": "mail"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete User",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/deleteUser?id=2",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"deleteUser"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Edit User",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/editUser?firstName=name&lastName=surname&email=mail&userId=4",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"editUser"
+							],
+							"query": [
+								{
+									"key": "firstName",
+									"value": "name"
+								},
+								{
+									"key": "lastName",
+									"value": "surname"
+								},
+								{
+									"key": "email",
+									"value": "mail"
+								},
+								{
+									"key": "userId",
+									"value": "4"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Log in",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/login?firstName=mol&lastName=rob",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"login"
+							],
+							"query": [
+								{
+									"key": "firstName",
+									"value": "mol"
+								},
+								{
+									"key": "lastName",
+									"value": "rob"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get User Data",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/getAllUsers",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"getAllUsers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Users",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/getAllUsers",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"getAllUsers"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Task",
+			"item": [
+				{
+					"name": "Create Task",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/createTask?title=bugFix&description=Fix the Bug&status=View&userId=2",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"createTask"
+							],
+							"query": [
+								{
+									"key": "title",
+									"value": "bugFix"
+								},
+								{
+									"key": "description",
+									"value": "Fix the Bug"
+								},
+								{
+									"key": "status",
+									"value": "View"
+								},
+								{
+									"key": "userId",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Edit Task",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/updateTask?title=asdas&description=asdsa&status=viewaa&taskId=1",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"updateTask"
+							],
+							"query": [
+								{
+									"key": "title",
+									"value": "asdas"
+								},
+								{
+									"key": "description",
+									"value": "asdsa"
+								},
+								{
+									"key": "status",
+									"value": "viewaa"
+								},
+								{
+									"key": "taskId",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Change Task Status",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/changeTaskStatus?status=Vie&taskId=2",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"changeTaskStatus"
+							],
+							"query": [
+								{
+									"key": "status",
+									"value": "Vie"
+								},
+								{
+									"key": "taskId",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Task",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/deleteTask?taskId=1",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"deleteTask"
+							],
+							"query": [
+								{
+									"key": "taskId",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Filter Tasks by Status",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/filterTaskByStatus?status=View",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"filterTaskByStatus"
+							],
+							"query": [
+								{
+									"key": "status",
+									"value": "View"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Switch Task To Another User",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/switchTaskToAnotherUser?taskId=3&userId=1",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"switchTaskToAnotherUser"
+							],
+							"query": [
+								{
+									"key": "taskId",
+									"value": "3"
+								},
+								{
+									"key": "userId",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Sort Task By Users",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/sortTaskByUsers?criteria=created",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"sortTaskByUsers"
+							],
+							"query": [
+								{
+									"key": "criteria",
+									"value": "created"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"protocolProfileBehavior": {}
+}
